@@ -1,0 +1,43 @@
+# Original live configurations
+02-Zabbix-Agent/zabbix_agentd.conf
+03-Wazuh-Agent/source-snapshot/
+
+# Authentication and secrets
+.env
+*.env
+client.keys
+*.key
+*.pem
+*.pfx
+*.p12
+*.kdb
+*.jks
+secrets/
+credentials/
+
+# Logs and runtime data
+*.log
+*.evtx
+logs/
+queue/
+tmp/
+
+# Backups
+*.bak
+*.old
+*.backup
+
+# Temporary files
+*.tmp
+*.temp
+*.swp
+Thumbs.db
+Desktop.ini
+# Raw server collection exports: review and sanitize before publishing
+/01-Windows-Server/
+/02-Zabbix-Agent/
+/03-Wazuh-Agent/
+/04-Sysmon/
+/05-AD-DNS-DHCP-GPO/
+/06-Scripts/
+/07-Review/
