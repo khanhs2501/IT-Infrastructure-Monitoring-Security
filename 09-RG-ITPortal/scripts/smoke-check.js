@@ -6,8 +6,8 @@ const { spawnSync } = require('node:child_process');
 const root = path.resolve(__dirname, '..');
 const packageInfo = JSON.parse(fs.readFileSync(path.join(root, 'package.json'), 'utf8'));
 process.stdout.write(`INFO RG-ITPortal version ${packageInfo.version} | test root: ${root}\n`);
-if (packageInfo.main !== 'server.js' || packageInfo.version !== '1.7.0') {
-  process.stderr.write('FAIL package metadata: expected main=server.js and version=1.7.0\n');
+if (packageInfo.main !== 'server.js' || !/^\d+\.\d+\.\d+$/.test(packageInfo.version)) {
+  process.stderr.write('FAIL package metadata: expected main=server.js and semantic version\n');
   process.exitCode = 1;
 }
 const folders = ['routes', path.join('public', 'js'), 'scripts'];
@@ -33,7 +33,9 @@ const required = [
   'public/index.html', 'public/css/style.css', 'public/js/app.js', 'public/js/ui9.js', 'public/js/auth.js',
   'public/views/ad.html', 'scripts/test-ad-query.js', 'scripts/test-ad-row-actions.js', 'scripts/test-flow.js',
   'scripts/check-env.js', 'scripts/test-login.js', 'scripts/diagnose-login.js', 'docs/CONFIGURATION.md', 'docs/SECURITY_OPERATIONS.md',
-  'docs/AD_COMPUTER_MANAGEMENT.md', 'docs/CHANGELOG_v1.6.0.md', 'docs/CHANGELOG_v1.7.0.md', 'docs/LOGIN_TROUBLESHOOTING.md', 'README.md'
+  'docs/AD_COMPUTER_MANAGEMENT.md', 'docs/CHANGELOG_v1.6.0.md', 'docs/CHANGELOG_v1.7.0.md', 'docs/LOGIN_TROUBLESHOOTING.md',
+  'docs/ARCHITECTURE_DESIGN.md', 'docs/LAB_REBUILD.md', 'docs/ALERTS_NOTIFICATIONS.md', 'docs/TEST_CASES.md', 'docs/TEST_RESULTS.md',
+  'docs/INTERNSHIP_REPORT_TEMPLATE.md', 'docs/DEMO_VIDEO_SCRIPT.md', 'README.md'
 ];
 for (const file of required) {
   if (!fs.existsSync(path.join(root, file))) { failed = true; process.stderr.write(`FAIL missing ${file}\n`); }
@@ -96,7 +98,7 @@ const featureChecks = [
   ['AD admin/unknown scopes', path.join(root, 'routes/ad.js'), "'__ADMINS__', '__UNKNOWN__'"],
   ['Computer diagnostics API', path.join(root, 'routes/ad.js'), "router.get('/computer-diagnostics'"],
   ['Computer diagnostics UI', path.join(root, 'public/js/app.js'), "adComputerDiagnostics"],
-  ['Department OU parent config', path.join(root, '.env.example'), 'DEPT_PARENT_OU="Departments"'],
+  ['Department OU parent config', path.join(root, '.env.example'), 'DEPT_PARENT_OU=Departments'],
   ['Create OU and matching security group', path.join(root, 'routes/ad.js'), "New-ADGroup -Name '${psq(gn)}' -SamAccountName '${psq(gn)}' -GroupScope Global -GroupCategory Security -Path $ou.DistinguishedName"],
   ['Exact OU DistinguishedName lookup', path.join(root, 'routes/ad.js'), 'Get-ADOrganizationalUnit -Identity'],
   ['Computer inventory uses resolved search base', path.join(root, 'routes/ad.js'), 'Get-ADComputer -SearchBase $searchBase'],
@@ -128,16 +130,17 @@ const featureChecks = [
   ['Persistent SQLite session store', path.join(root, 'server.js'), 'new SQLiteSessionStore('],
   ['Per-account login guard', path.join(root, 'server.js'), 'createLoginGuard()'],
   ['Login UI handles AD errors', path.join(root, 'public/js/auth.js'), 'Đang xác thực với Active Directory'],
-  ['ENV preserves pfSense stable target', path.join(root, '.env.example'), 'PFSENSE_SSH_HOST=\"192.168.10.1\"'],
+  ['ENV uses non-routable pfSense placeholder', path.join(root, '.env.example'), 'PFSENSE_SSH_HOST=firewall.example.invalid'],
 ];
 for (const [label, file, needle] of featureChecks) {
   const content = fs.readFileSync(file, 'utf8');
   if (!content.includes(needle)) { failed = true; process.stderr.write(`FAIL feature ${label}: missing marker\n`); }
   else process.stdout.write(`OK   feature ${label}\n`);
 }
-// This is a private recovery bundle by user request: .env and itportal.db are intentionally included.
-if (!fs.existsSync(path.join(root, '.env'))) { failed = true; process.stderr.write('FAIL missing .env (private ready-to-run bundle)\n'); }
-if (!fs.existsSync(path.join(root, 'itportal.db'))) { failed = true; process.stderr.write('FAIL missing itportal.db (private ready-to-run bundle)\n'); }
-process.stdout.write('INFO private bundle includes .env and itportal.db; keep the ZIP confidential.\n');
+// Public source delivery must not contain live credentials or operational database data.
+for (const file of ['.env', 'itportal.db', 'itportal.db-wal', 'itportal.db-shm']) {
+  if (fs.existsSync(path.join(root, file))) { failed = true; process.stderr.write(`FAIL private runtime file must not be committed: ${file}\n`); }
+}
+process.stdout.write('INFO public source check: runtime secrets/database files must be absent.\n');
 if (failed) process.exit(1);
 console.log('Source smoke-check passed (syntax/required files/static feature checks).');

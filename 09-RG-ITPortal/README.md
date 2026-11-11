@@ -1,57 +1,45 @@
 # RG-ITPortal v1.8.2
 
-Portal quản trị và giám sát hạ tầng ROYALGROUP: Zabbix, Wazuh, pfSense, Active Directory, Docker, tài sản, lỗ hổng, helpdesk và báo cáo.
+Portal quản trị và giám sát hạ tầng ROYALGROUP, tích hợp Zabbix, Wazuh, pfSense, Active Directory, Docker, tài sản, lỗ hổng, helpdesk và báo cáo.
 
-## Chạy nhanh trên Windows
+## Tài liệu bàn giao
 
-1. Giải nén toàn bộ ZIP vào `C:\RG-ITPortal` (hoặc thư mục riêng để thử trước).
-2. Cần **Node.js 22 LTS x64**. ZIP đã kèm `node_modules` cho Windows x64; nếu thiếu/lỗi, `START_PORTAL.cmd` tự chạy `npm ci`.
-3. Nhấp đúp **`START_PORTAL.cmd`**: kiểm tra Node, thư viện, `.env`, rồi khởi động và tự mở trình duyệt tại cổng đặt trong `.env` (`PORT`, hiện là `80` → `http://localhost`).
-   - Muốn chạy kèm bộ test tự động: `START_PORTAL.cmd test`.
-4. Nếu đang chạy Windows Service **RoyalGroup IT Portal**, dừng service trước (cùng cổng sẽ xung đột), hoặc đặt `PORT` khác trong `.env`.
+- [Kiến trúc & thiết kế](docs/ARCHITECTURE_DESIGN.md)
+- [Dựng Lab](docs/LAB_REBUILD.md)
+- [Cảnh báo & thông báo](docs/ALERTS_NOTIFICATIONS.md)
+- [Bộ test](docs/TEST_CASES.md) và [kết quả chạy](docs/TEST_RESULTS.md)
+- [Vận hành và bảo mật](docs/SECURITY_OPERATIONS.md)
+- [Cấu hình](docs/CONFIGURATION.md), [xử lý lỗi đăng nhập](docs/LOGIN_TROUBLESHOOTING.md), [quản lý máy tính AD](docs/AD_COMPUTER_MANAGEMENT.md)
+- [Khung báo cáo thực tập](docs/INTERNSHIP_REPORT_TEMPLATE.md) và [kịch bản video demo](docs/DEMO_VIDEO_SCRIPT.md)
 
-> Portal xác thực bằng Active Directory qua PowerShell nên phải chạy trên **Windows có RSAT/ActiveDirectory module**, bằng tài khoản có quyền đọc AD.
+## Chạy thử trên Windows
 
-## Cập nhật không mất dữ liệu (đang có bản 1.6.0 chạy thật)
+1. Cài Node.js 22 LTS x64 và Windows PowerShell. Cần RSAT/ActiveDirectory cho các chức năng AD.
+2. Sao chép thư mục portal ra một máy Lab Windows; không dùng cấu hình thật từ máy sản xuất.
+3. Trong thư mục dự án, chạy `npm ci`.
+4. Sao chép `.env.example` thành `.env`, điền endpoint và thông tin xác thực dành riêng cho Lab. Tạo một `SESSION_SECRET` ngẫu nhiên dài ít nhất 32 ký tự.
+5. Chọn cổng chưa sử dụng bằng `PORT`; nếu thử cục bộ, nên chọn cổng lớn hơn 1024.
+6. Chạy `npm start`, sau đó mở `http://localhost:<PORT>`.
 
-1. Dừng service, sao lưu cả thư mục `C:\RG-ITPortal`.
-2. Chép đè ZIP mới **nhưng giữ lại** `.env` và `itportal.db` đang chạy thật (ZIP chứa bản snapshot cũ của hai file này).
-3. Thêm khối "Đăng nhập & phiên" từ `.env.example` vào `.env` (tùy chọn, đã có mặc định an toàn).
-4. Khởi động lại. Người dùng đăng nhập lại một lần; từ đó phiên được giữ qua mọi lần restart.
-
-## Cài thành Windows Service
-
-```powershell
-node install-service.js     # cài + chạy (đường dẫn theo thư mục hiện tại)
-node uninstall-service.js   # gỡ (giữ nguyên dữ liệu)
-```
-
-## Đăng nhập lỗi?
-
-```powershell
-npm run diagnose:login -- Administrator
-```
-Xem `docs/LOGIN_TROUBLESHOOTING.md` (bảng thông báo → nguyên nhân → cách xử lý).
-
-## Dữ liệu kèm theo
-
-- `.env`: cấu hình thật (Zabbix, Wazuh, SSH, session secret) + các khóa mới của v1.7.0.
-- `itportal.db`: snapshot SQLite đã gộp WAL (không còn `-wal`/`-shm` riêng).
-
-**Bảo mật:** ZIP chứa thông tin xác thực thật và dữ liệu vận hành. Không đưa lên kho công khai; nếu đã chia sẻ ra ngoài, hãy xoay vòng mật khẩu/token. `INDEXER_TLS_REJECT_UNAUTHORIZED=false` chỉ hợp lý cho lab dùng chứng chỉ tự ký.
+Các tích hợp ngoài Portal cần cài và cấu hình riêng. Portal không tự dựng Active Directory, Zabbix, Wazuh, pfSense hoặc Docker. Xem [LAB_REBUILD.md](docs/LAB_REBUILD.md) để biết giới hạn và thứ tự dựng.
 
 ## Kiểm tra
 
 ```powershell
-npm test            # smoke + AD contract + flow + login (không cần domain thật)
-npm run check:env   # kiểm tra cú pháp .env
-node check.js       # kết nối thật tới Zabbix/Wazuh/SSH/AD theo .env
+npm test
+npm run check:env
 ```
 
-## Cấu trúc
+`node check.js` kết nối tới dịch vụ ngoài theo `.env`; chỉ dùng sau khi xác minh host và tài khoản Lab. Không chạy lệnh này với thông tin production khi chỉ muốn kiểm tra mã nguồn.
 
-- `server.js`: Express, session (SQLite), SQLite WAL, health, tắt an toàn, xử lý lỗi toàn cục.
-- `routes/`: API (AD, tài sản, Docker, helpdesk, monitoring, reports, security…); `ad-auth.js`, `auth.js`, `login-guard.js`, `session-store.js` lo đăng nhập/phiên.
-- `public/`: giao diện; `js/auth.js` xử lý đăng nhập và phiên hết hạn.
-- `scripts/`: kiểm thử, `diagnose-login.js`, `check-env.js`.
-- `docs/`: `CONFIGURATION.md`, `LOGIN_TROUBLESHOOTING.md`, `SECURITY_OPERATIONS.md`, `CHANGELOG_v1.7.0.md`, `CHANGELOG_v1.8.0.md`.
+## Kho mã nguồn và dữ liệu nhạy cảm
+
+Repo GitHub chứa mã nguồn và cấu hình mẫu đã thay endpoint/credential bằng placeholder. Không đưa `.env`, `itportal.db`, bản sao lưu, log, token, private key, `node_modules` hoặc dữ liệu người dùng vào Git. `.env.example` là mẫu; thay bằng thông tin Lab của bạn trên máy triển khai.
+
+## Cấu trúc chính
+
+- `server.js`: Express, xác thực phiên, SQLite, health endpoint và khởi động dịch vụ.
+- `routes/`: API theo từng miền chức năng.
+- `public/`: giao diện dashboard và các trang giám sát/quản trị.
+- `scripts/`: kiểm tra cấu hình, chẩn đoán và kiểm thử tự động.
+- `docs/`: tài liệu thiết kế, dựng Lab, cấu hình, vận hành, kiểm thử và bàn giao.

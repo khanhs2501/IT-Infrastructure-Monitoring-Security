@@ -4,8 +4,8 @@
 
 - Chỉ dùng HTTPS cho môi trường sản xuất; bật `COOKIE_SECURE=true` khi TLS đã hoạt động. Nếu chạy HTTP lab, để `false`.
 - Chỉ cấu hình `TRUST_PROXY` khi biết rõ proxy phía trước Portal và giới hạn chính xác số hop/địa chỉ tin cậy.
-- Giữ `.env`, `itportal.db`, log và backup ngoài kho mã nguồn công khai. Gói phục hồi v1.6.0 chứa `.env` thật và DB người dùng theo yêu cầu, vì vậy cần được xem là dữ liệu bí mật.
-- Đổi/thu hồi các mật khẩu, token, session secret nếu ZIP hoặc log đã bị chia sẻ ngoài phạm vi tin cậy.
+- Giữ `.env`, `itportal.db`, log và backup ngoài kho mã nguồn công khai. Repo chỉ nên chứa `.env.example` với endpoint giả lập và placeholder.
+- Nếu credential thật từng được commit hoặc gửi trong chat, hãy thu hồi/đổi credential đó; xóa file trong commit mới không xóa được khỏi lịch sử Git.
 - Với Wazuh TLS, ưu tiên tin cậy certificate của Indexer thay vì tắt xác minh TLS.
 - Tài khoản chạy Node/Windows Service cần chỉ có quyền tối thiểu phù hợp; tránh cấp Domain Admin nếu không bắt buộc.
 
@@ -15,7 +15,7 @@ Database sử dụng đường dẫn tuyệt đối, WAL, busy timeout, index v�
 
 ## Kiểm thử và health
 
-- `npm test`: kiểm thử mã nguồn, hợp đồng API, thao tác tại chỗ và flow HTTP/SQLite.
+- `npm test`: kiểm thử mã nguồn, hợp đồng API, thao tác tại chỗ và flow HTTP/SQLite bằng dữ liệu/AD giả lập.
 - `GET /api/health`: kiểm tra truy vấn SQLite thực tế.
 - `node check.js`: kiểm tra kết nối với dịch vụ bên ngoài; chỉ chạy khi đã xác minh các địa chỉ/credentials đang dùng.
 
