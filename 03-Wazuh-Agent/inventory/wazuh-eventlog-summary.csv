@@ -1,0 +1,5 @@
+﻿"Location","LogFormat","HasQuery","EventIDs"
+"Application","eventchannel","False",""
+"Security","eventchannel","False",""
+"System","eventchannel","False",""
+"active-response\active-responses.log","syslog","False",""

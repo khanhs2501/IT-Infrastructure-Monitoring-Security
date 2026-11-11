@@ -1,0 +1,2 @@
+﻿"PolicyFile","PolicyType","TargetOS","SizeBytes","CheckCount","LastModified","SHA256","Source","LocalSnapshot"
+"cis_win2022.yml","Wazuh Built-in SCA Policy","Windows Server 2022","852104","359","7/10/2026 11:10:44 PM","81E077B154A909CEBC2DC9ED5667DF0DC49108E759AAEB039641E9C2A13CAF43","C:\Program Files (x86)\ossec-agent\ruleset\sca\cis_win2022.yml","C:\IT-Config-Export\ROYAL01\03-Wazuh-Agent\source-snapshot\reference\sca\cis_win2022.yml"

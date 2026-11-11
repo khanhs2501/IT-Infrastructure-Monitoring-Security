@@ -1,0 +1,4 @@
+"Name","Enabled","DefaultInboundAction","DefaultOutboundAction","AllowInboundRules","AllowLocalFirewallRules","AllowLocalIPsecRules","NotifyOnListen","LogFileName","LogMaxSizeKilobytes","LogAllowed","LogBlocked"
+"Domain","False","NotConfigured","NotConfigured","True","NotConfigured","NotConfigured","False","%systemroot%\system32\LogFiles\Firewall\pfirewall.log","4096","False","False"
+"Private","False","NotConfigured","NotConfigured","NotConfigured","NotConfigured","NotConfigured","False","%systemroot%\system32\LogFiles\Firewall\pfirewall.log","4096","False","False"
+"Public","False","NotConfigured","NotConfigured","NotConfigured","NotConfigured","NotConfigured","False","%systemroot%\system32\LogFiles\Firewall\pfirewall.log","4096","False","False"

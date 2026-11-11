@@ -1,0 +1,9 @@
+﻿WAZUH CONFIG SENSITIVE FIELD INSPECTION
+Server: ROYAL01
+Date: 2026-11-11 09:06:47
+
+Manager address configured: True
+
+Sensitive field count: 0
+
+No sensitive XML element or attribute names found.

@@ -1,0 +1,7 @@
+"ZoneName","ZoneType","IsDsIntegrated","ReplicationScope","IsReverseLookupZone","DynamicUpdate"
+"_msdcs.royal.local","Primary","True","Forest","False","Secure"
+"0.in-addr.arpa","Primary","False","None","True","None"
+"127.in-addr.arpa","Primary","False","None","True","None"
+"255.in-addr.arpa","Primary","False","None","True","None"
+"royal.local","Primary","True","Domain","False","Secure"
+"TrustAnchors","Primary","True","Forest","False","None"

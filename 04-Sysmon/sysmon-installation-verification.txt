@@ -1,0 +1,22 @@
+SYSMON READ-ONLY INSTALLATION VERIFICATION
+Server: ROYAL01
+Collected: 2026-11-11 09:17:51 +07:00
+Scope: services, drivers, known registry service keys, event channels/providers, bounded common binary paths, uninstall registry entries.
+No service, driver, event channel, or configuration was changed.
+
+Sysmon services: 0
+Sysmon drivers: 0
+Sysmon service registry keys: 0
+Sysmon binaries in searched locations: 0
+Sysmon event channels: 0
+Sysmon event providers: 0
+Sysmon uninstall entries: 0
+
+EVENT CHANNELS
+None found
+
+EVENT PROVIDERS
+None found
+
+RESULT
+No Sysmon installation artifacts were found in the searched locations and registries.

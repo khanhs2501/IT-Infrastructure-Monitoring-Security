@@ -1,0 +1,13 @@
+﻿zabbix_agentd Win64 (service) (Zabbix) 7.4.14
+Revision 9e85f210d0f 25 August 2026, compilation time: Aug 25 2026 14:53:34
+
+Copyright (C) 2026 Zabbix SIA
+License AGPLv3: GNU Affero General Public License version 3 <https://www.gnu.org/licenses/>.
+This is free software: you are free to change and redistribute it according to
+the license. There is NO WARRANTY, to the extent permitted by law.
+
+This product includes software developed by the OpenSSL Project
+for use in the OpenSSL Toolkit (http://www.openssl.org/).
+
+Compiled with OpenSSL 3.5.1 1 Jul 2025
+Running with OpenSSL 3.5.1 1 Jul 2025

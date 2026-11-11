@@ -1,0 +1,34 @@
+﻿ZABBIX AGENT CONFIGURATION COLLECTION
+=====================================
+Server: ROYAL01
+Collection Date: 2026-11-11 08:48:37
+
+Agent Version: 7.4.14
+Service Name: Zabbix Agent
+Service Status: Running
+Startup Type: Auto
+Service Account: LocalSystem
+
+Executable:
+C:\Program Files\Zabbix Agent\zabbix_agentd.exe
+
+Main Configuration:
+C:\Program Files\Zabbix Agent\zabbix_agentd.conf
+
+Exported Configuration:
+C:\IT-Config-Export\ROYAL01\02-Zabbix-Agent\zabbix_agentd.conf
+
+Include Directory:
+C:\Program Files\Zabbix Agent\zabbix_agentd.d
+
+Include File Count: 0
+UserParameter Count: 0
+
+Original SHA256:
+BDD13DD3E8A8C20CE35E0D03870EA1BC97B9757D9FD06EE064540AC4BBE3A9ED
+
+Exported SHA256:
+BDD13DD3E8A8C20CE35E0D03870EA1BC97B9757D9FD06EE064540AC4BBE3A9ED
+
+Configuration Copy Identical:
+True

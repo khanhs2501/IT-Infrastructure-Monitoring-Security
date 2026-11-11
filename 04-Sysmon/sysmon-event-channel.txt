@@ -1,0 +1,8 @@
+﻿wevtutil.exe : Failed to read configuration for log Microsoft-Windows-Sysmon/Operational.
+At line:84 char:1
++ & wevtutil.exe gl $Channel 2>&1 |
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Failed to read ...on/Operational.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+The specified channel could not be found.

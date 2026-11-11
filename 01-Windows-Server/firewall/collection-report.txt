@@ -1,0 +1,8 @@
+READ-ONLY FIREWALL COLLECTION
+Server: ROYAL01
+Collected: 2026-11-11 09:20:39 +07:00
+No firewall settings were changed.
+Profiles: 3
+Rules: 474
+Port filters: 474
+Address filters: 474

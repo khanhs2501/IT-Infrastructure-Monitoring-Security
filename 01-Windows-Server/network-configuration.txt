@@ -1,0 +1,30 @@
+﻿
+
+ComputerName         : ROYAL01
+InterfaceAlias       : Ethernet0
+InterfaceIndex       : 15
+InterfaceDescription : Intel(R) 82574L Gigabit Network Connection
+CompartmentId        : 1
+NetAdapter           : MSFT_NetAdapter (CreationClassName = "MSFT_NetAdapter", DeviceID = 
+                       "{C0E5ABAA-D1B4-4C9A-9638-850B49758A94}", SystemCreationClassName = "CIM_NetworkPort", 
+                       SystemName = "ROYAL01.royal.local")
+NetCompartment       : MSFT_NetCompartment (InstanceID = ";55;")
+NetIPv6Interface     : MSFT_NetIPInterface (Name = ";?55??55;", CreationClassName = "", SystemCreationClassName = "", 
+                       SystemName = "")
+NetIPv4Interface     : MSFT_NetIPInterface (Name = ";?55?55;", CreationClassName = "", SystemCreationClassName = "", 
+                       SystemName = "")
+NetProfile           : MSFT_NetConnectionProfile (InstanceID = "{C0E5ABAA-D1B4-4C9A-9638-850B49758A94}")
+AllIPAddresses       : {192.168.10.10, fe80::7ac3:35cd:f5fc:1d65%15}
+IPv6Address          : {}
+IPv6TemporaryAddress : {}
+IPv6LinkLocalAddress : {fe80::7ac3:35cd:f5fc:1d65%15}
+IPv4Address          : {192.168.10.10}
+IPv6DefaultGateway   : 
+IPv4DefaultGateway   : {MSFT_NetRoute (InstanceID = ":8:8:8:9:55;?55;C?8;@B8;:8;55;")}
+DNSServer            : {MSFT_DNSClientServerAddress (Name = "15", CreationClassName = "", SystemCreationClassName = 
+                       "", SystemName = "23"), MSFT_DNSClientServerAddress (Name = "15", CreationClassName = "", 
+                       SystemCreationClassName = "", SystemName = "2")}
+Detailed             : False
+
+
+

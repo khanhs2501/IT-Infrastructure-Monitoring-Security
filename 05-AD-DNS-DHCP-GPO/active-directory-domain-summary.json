@@ -1,0 +1,8 @@
+{
+  "Domain": "royal.local",
+  "DomainMode": "Windows2016Domain",
+  "Forest": "royal.local",
+  "ForestMode": "Windows2016Forest",
+  "PDCEmulator": "ROYAL01.royal.local",
+  "NetBIOSName": "ROYAL"
+}

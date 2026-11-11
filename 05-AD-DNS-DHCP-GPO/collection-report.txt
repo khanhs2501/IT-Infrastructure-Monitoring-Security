@@ -1,0 +1,10 @@
+READ-ONLY WINDOWS ROLE AND DIRECTORY/DNS/DHCP/GPO COLLECTION
+Server: ROYAL01
+Collected: 2026-11-11 09:19:14 +07:00
+No service or server configuration was changed. User accounts, group memberships, DHCP leases, and DNS record sets were not collected.
+
+Windows feature inventory : Collected — 269 entries
+Active Directory : Collected — 1 domain controller entries; no users/groups enumerated
+DNS configuration : Collected — 6 zones; record data not exported
+DHCP configuration : Collected — 0 scopes; no leases/client records exported
+Group Policy : Collected — 5 policies

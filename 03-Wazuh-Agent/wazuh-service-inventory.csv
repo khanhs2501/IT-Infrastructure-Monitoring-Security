@@ -1,0 +1,2 @@
+﻿"Name","DisplayName","State","StartMode","StartName","PathName"
+"WazuhSvc","Wazuh","Running","Auto","LocalSystem","""C:\Program Files (x86)\ossec-agent\wazuh-agent.exe"""

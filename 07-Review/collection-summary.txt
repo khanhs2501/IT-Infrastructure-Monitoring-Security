@@ -1,0 +1,23 @@
+ROYAL01 READ-ONLY CONFIGURATION COLLECTION SUMMARY
+Collected: 2026-11-11 (Asia/Bangkok)
+
+ACCESS
+Computer: ROYAL01
+Execution identity: ROYAL\administrator
+Administrator privileges: confirmed
+Export root: C:\IT-Config-Export\ROYAL01
+
+VERIFIED EXISTING COLLECTIONS
+02-Zabbix-Agent: configuration inspection, version and collection inventory, raw source config, and sanitized zabbix_agentd.conf.example are present.
+03-Wazuh-Agent: service/directory/event-log/SCA inventories, source snapshot, and ossec.conf.example are present. The example uses a manager placeholder. No client.keys file was found in this section.
+
+COLLECTED THIS RUN
+04-Sysmon: no Sysmon services, drivers, registry service keys, binaries, event channels/providers, or uninstall entries were found in the searched locations. See sysmon-installation-verification.txt and accompanying CSVs.
+05-AD-DNS-DHCP-GPO: Windows feature inventory; AD domain summary, domain controllers, and default password policy; DNS zones and forwarders; DHCP scope/options; GPO inventory and XML report. Results: 269 features, 1 domain controller, 6 DNS zones, 0 DHCP scopes, 5 GPOs.
+01-Windows-Server\firewall: 3 firewall profiles, 474 rules, 474 port filters, and 474 address filters.
+06-Scripts: no script files in the bounded search locations; 77 scheduled-task action entries recorded with arguments omitted.
+
+SAFETY SCOPE
+This run only read server state and wrote collection outputs under this export root. It did not install, enable, disable, restart, or modify services, roles, firewall rules, event channels, or server configuration. User accounts, group memberships, DNS record sets, DHCP leases, script contents, scheduled-task arguments, and secret values were not collected. The GPO report was checked for nonempty cpassword entries; none were found.
+
+The raw Zabbix and Wazuh source snapshots are retained locally for internal review. Use the sanitized *.example files for sharing; review all exported reports before publishing them.

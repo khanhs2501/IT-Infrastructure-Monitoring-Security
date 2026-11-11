@@ -1,0 +1,6 @@
+"DisplayName","Id","Owner","GpoStatus","CreationTime","ModificationTime"
+"store","3117b19d-234a-4b42-8308-9e410e74f5dc","ROYAL\Domain Admins","AllSettingsEnabled","10/6/2026 9:58:40 AM","10/6/2026 9:58:40 AM"
+"Default Domain Policy","31b2f340-016d-11d2-945f-00c04fb984f9","ROYAL\Domain Admins","AllSettingsEnabled","9/14/2026 10:13:43 AM","11/3/2026 1:35:20 PM"
+"GPO_LocalAdmin_IT_Install","548aaba1-8c41-40aa-80f3-9b43692d708e","ROYAL\Domain Admins","AllSettingsEnabled","10/22/2026 1:18:13 PM","11/3/2026 1:37:18 PM"
+"Default Domain Controllers Policy","6ac1786c-016f-11d2-945f-00c04fb984f9","ROYAL\Domain Admins","AllSettingsEnabled","9/14/2026 10:13:43 AM","9/24/2026 3:08:32 PM"
+"GPO - Company Baseline","b1d969c7-92f0-42ee-be0e-efb26f67a3a2","ROYAL\Domain Admins","AllSettingsEnabled","9/17/2026 10:29:22 AM","11/3/2026 1:36:40 PM"

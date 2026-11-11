@@ -1,0 +1,20 @@
+﻿ZABBIX AGENT CONFIGURATION INSPECTION
+Server: ROYAL01
+Agent version: 7.4.14
+Inspection date: 2026-11-11 08:45:34
+Original file: C:\Program Files\Zabbix Agent\zabbix_agentd.conf
+Collected file: C:\IT-Config-Export\ROYAL01\02-Zabbix-Agent\zabbix_agentd.conf
+SHA256 identical: True
+
+PARAMETER NAMES:
+Hostname
+Include
+LogFile
+Server
+ServerActive
+
+INCLUDE DIRECTIVES:
+Include=C:\Program Files\Zabbix Agent\zabbix_agentd.d\
+
+USERPARAMETER COUNT:
+0

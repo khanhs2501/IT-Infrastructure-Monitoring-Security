@@ -1,0 +1,14 @@
+READ-ONLY SCRIPT AND TASK INVENTORY
+Server: ROYAL01
+Collected: 2026-11-11 09:21:10 +07:00
+Script contents and scheduled-task action arguments were not collected.
+Script files found in bounded locations: 0
+Scheduled task actions: 77 (arguments omitted)
+Search locations:
+C:\Scripts
+C:\IT-Scripts
+C:\Windows\System32\GroupPolicy\Machine\Scripts
+C:\Windows\System32\GroupPolicy\User\Scripts
+C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Startup
+C:\Users\Administrator\Documents\WindowsPowerShell
+C:\Users\Administrator\Documents\PowerShell

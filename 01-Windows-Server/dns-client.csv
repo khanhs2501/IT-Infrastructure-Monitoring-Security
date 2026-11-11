@@ -1,0 +1,5 @@
+﻿"Address","Caption","Description","ElementName","InstanceID","CommunicationStatus","DetailedStatus","HealthState","InstallDate","Name","OperatingStatus","OperationalStatus","PrimaryStatus","Status","StatusDescriptions","AvailableRequestedStates","EnabledDefault","EnabledState","OtherEnabledState","RequestedState","TimeOfLastStateChange","TransitioningToState","CreationClassName","SystemCreationClassName","SystemName","AccessContext","AccessInfo","InfoFormat","OtherAccessContext","OtherInfoFormatDescription","AddressFamily","InterfaceAlias","InterfaceIndex","ServerAddresses","PSComputerName"
+"System.String[]",,,"Ethernet0",,,,,,"15",,,,,,,"2","5",,"12",,"12","","","2","0",,,,,"2","Ethernet0","15","System.String[]",
+"System.String[]",,,"Ethernet0",,,,,,"15",,,,,,,"2","5",,"12",,"12","","","23","0",,,,,"23","Ethernet0","15","System.String[]",
+"System.String[]",,,"Loopback Pseudo-Interface 1",,,,,,"1",,,,,,,"2","5",,"12",,"12","","","2","0",,,,,"2","Loopback Pseudo-Interface 1","1","System.String[]",
+"System.String[]",,,"Loopback Pseudo-Interface 1",,,,,,"1",,,,,,,"2","5",,"12",,"12","","","23","0",,,,,"23","Loopback Pseudo-Interface 1","1","System.String[]",

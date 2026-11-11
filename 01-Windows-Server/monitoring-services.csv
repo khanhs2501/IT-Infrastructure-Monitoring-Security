@@ -1,0 +1,3 @@
+﻿"Name","DisplayName","State","StartMode","StartName","PathName"
+"WazuhSvc","Wazuh","Running","Auto","LocalSystem","""C:\Program Files (x86)\ossec-agent\wazuh-agent.exe"""
+"Zabbix Agent","Zabbix Agent","Running","Auto","LocalSystem","""C:\Program Files\Zabbix Agent\zabbix_agentd.exe"" --config ""C:\Program Files\Zabbix Agent\zabbix_agentd.conf"""
