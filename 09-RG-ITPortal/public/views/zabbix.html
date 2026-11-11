@@ -1,0 +1,41 @@
+<style>
+    .zabbix-scroll { max-height: 280px; overflow-y: auto; overflow-x: hidden; }
+    .zabbix-scroll::-webkit-scrollbar { width: 6px; }
+    .zabbix-scroll::-webkit-scrollbar-track { background: rgba(0,0,0,0.1); border-radius: 4px; }
+    .zabbix-scroll::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+    .zabbix-scroll::-webkit-scrollbar-thumb:hover { background: #475569; }
+</style>
+<div class="row g-3 mb-4">
+    <div class="col-md-3"><div class="card gauge-box"><small class="text-secondary">LINUX01 - Uptime</small><div class="uptime-val my-2" id="zbLU">--:--:--</div><span class="small text-secondary">System uptime</span></div></div>
+    <div class="col-md-3"><div class="card gauge-box"><small class="text-secondary">LINUX01 - Memory</small><div class="gauge-val text-warning my-2" id="zbLM">-- %</div><span class="small text-secondary">RAM</span></div></div>
+    <div class="col-md-3"><div class="card gauge-box"><small class="text-secondary">LINUX01 - CPU</small><div class="gauge-val text-info my-2" id="zbLC">-- %</div><span class="small text-secondary">CPU</span></div></div>
+    <div class="col-md-3"><div class="card gauge-box"><small class="text-secondary">LINUX01 - Disk /</small><div class="gauge-val my-2" id="zbLD">-- %</div><span class="small text-secondary">Drive</span></div></div>
+</div>
+<div class="row g-3 mb-4">
+    <div class="col-md-3"><div class="card gauge-box"><small class="text-secondary">ROYAL01 - Uptime</small><div class="uptime-val text-warning my-2" id="zbRU">--:--:--</div><span class="small text-secondary">Uptime</span></div></div>
+    <div class="col-md-3"><div class="card gauge-box"><small class="text-secondary">ROYAL01 - Memory</small><div class="gauge-val my-2" id="zbRM">-- %</div><span class="small text-secondary">RAM</span></div></div>
+    <div class="col-md-3"><div class="card gauge-box"><small class="text-secondary">ROYAL01 - CPU</small><div class="gauge-val text-info my-2" id="zbRC">-- %</div><span class="small text-secondary">CPU</span></div></div>
+    <div class="col-md-3"><div class="card gauge-box"><small class="text-secondary">ROYAL01 - Disk C:</small><div class="gauge-val my-2" id="zbRD">-- %</div><span class="small text-secondary">C drive usage</span></div></div>
+</div>
+<div class="card p-3 mb-4">
+    <h6 class="fw-bold text-danger mb-3"><i class="fa-solid fa-triangle-exclamation"></i> Lịch Sử Sự Cố (Problems History)</h6>
+    <div class="table-responsive zabbix-scroll">
+        <table class="table table-hover table-sm m-0">
+            <thead style="position: sticky; top: 0; background: var(--bg-card); z-index: 1;">
+                <tr><th>Time</th><th>Recovery</th><th>Status</th><th>Host</th><th>Problem</th><th>Duration</th><th>Incident</th></tr>
+            </thead>
+            <tbody id="zbProbList"></tbody>
+        </table>
+    </div>
+</div>
+<div class="card p-3">
+    <h6 class="fw-bold text-info mb-3"><i class="fa-solid fa-paper-plane"></i> Nhật Ký Cảnh Báo (Action Log)</h6>
+    <div class="table-responsive zabbix-scroll">
+        <table class="table table-hover table-sm m-0">
+            <thead style="position: sticky; top: 0; background: var(--bg-card); z-index: 1;">
+                <tr><th>Time</th><th>Action</th><th>Media</th><th>Recipient</th><th>Message</th><th>Status</th></tr>
+            </thead>
+            <tbody id="zbActList"></tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,10 @@
+RG-ITPortal v1.7.0 — QUICK START
+
+1) Dung Windows Service "RoyalGroup IT Portal" neu dang chay (hoac doi PORT trong .env).
+2) Giai nen ZIP vao C:\RG-ITPortal (server.js, package.json, .env, itportal.db, public, routes, node_modules nam truc tiep trong thu muc nay).
+3) Nhap dup START_PORTAL.cmd: kiem tra Node/thu vien/.env roi chay va tu mo trinh duyet (PORT trong .env, hien la 80 -> http://localhost).
+   Muon chay kem bo test: START_PORTAL.cmd test
+4) Dang nhap loi? Chay:  npm run diagnose:login -- Administrator   (xem docs\LOGIN_TROUBLESHOOTING.md)
+
+Dang nang cap tu 1.6.0 dang chay that: GIU LAI .env va itportal.db dang dung (xem README.md, muc "Cap nhat khong mat du lieu").
+ZIP nay chua thong tin dang nhap that va du lieu van hanh. Khong chia se cong khai.

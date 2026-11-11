@@ -1,0 +1,6 @@
+﻿<div class="card p-4 mb-4"><h5 class="fw-bold mb-1"><i class="fa-solid fa-user-shield"></i> Mặc Định Theo Vai Trò</h5>
+<p class="small text-secondary mb-3">Super-Admin (Domain Admins) luôn toàn quyền. IT-Staff tương ứng nhóm IT-Helpdesk, Employee tương ứng Domain Users. Mức "Xem" ở mục Active Directory gồm cả đặt lại mật khẩu user (trừ tài khoản quản trị). Mật khẩu Windows LAPS có quyền riêng và mặc định không cấp cho IT-Staff; Super-Admin có toàn quyền. Trưởng phòng không cần cấp ở đây: quyền lấy từ thuộc tính ManagedBy của OU.</p>
+<div class="table-responsive"><table class="table table-sm align-middle"><thead><tr><th>Chức năng</th><th style="width:220px">IT-Staff</th><th style="width:220px">Employee</th></tr></thead><tbody id="permBody"></tbody></table></div></div>
+<div class="card p-4"><h5 class="fw-bold mb-1"><i class="fa-solid fa-id-badge"></i> Vai Trò Riêng Từng IT-Staff</h5>
+<p class="small text-secondary mb-3">Mỗi người một vai trò: chọn vai trò mẫu hoặc chỉnh từng chức năng. "Mặc định" nghĩa là theo bảng vai trò ở trên.</p>
+<div class="table-responsive" id="permStaff"></div></div>

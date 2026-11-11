@@ -1,0 +1,22 @@
+﻿<div class="row g-3 align-items-stretch">
+  <div class="col-xl-3 col-lg-4">
+    <div class="card p-3 h-100">
+      <div class="d-flex justify-content-between align-items-center mb-3"><h6 class="fw-bold mb-0"><i class="fa-solid fa-folder-tree me-2 text-info"></i>Departments</h6><button class="btn btn-sm btn-outline-info" data-bs-toggle="modal" data-bs-target="#addOUModal" title="Tạo OU"><i class="fa-solid fa-folder-plus"></i></button></div>
+      <div class="small text-secondary mb-2">Chọn một OU để xem tài khoản trong phòng ban đó.</div>
+      <div id="adOuTree" class="list-group list-group-flush"><div class="text-secondary small p-2">Đang tải OU...</div></div>
+    </div>
+  </div>
+  <div class="col-xl-9 col-lg-8">
+    <div class="card p-3">
+      <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center mb-3"><div><h5 class="fw-bold mb-1"><i class="fa-solid fa-users me-2"></i>Quản trị tài khoản AD</h5><div id="adSelectedOUCaption" class="small text-secondary">Chọn phòng ban ở cột bên trái</div></div><button id="adAddUserTop" class="btn btn-warning btn-sm fw-bold" data-bs-toggle="modal" data-bs-target="#addUserModal"><i class="fa-solid fa-user-plus me-1"></i>Thêm User</button></div>
+      <div class="row g-2 mb-3 align-items-center"><div class="col-md-8"><input id="adUserSearch" class="form-control form-control-sm" placeholder="Tìm tài khoản hoặc họ tên trong OU đã chọn..."></div><div class="col-md-4 d-flex justify-content-md-end"><button class="btn btn-outline-secondary btn-sm px-2 text-nowrap" title="Làm mới danh sách người dùng" onclick="loadAD()"><i class="fa-solid fa-rotate me-1"></i>Làm mới</button></div></div>
+      <select id="adDepartmentFilter" class="d-none"></select>
+      <div class="table-responsive" style="max-height:68vh;overflow:auto"><table class="table table-hover table-sm align-middle"><thead style="position:sticky;top:0;background:var(--bs-body-bg);z-index:2"><tr><th>Tài khoản</th><th>Họ và tên</th><th>OU/Phòng ban</th><th>Nhóm</th><th>Trạng thái</th><th class="text-end">Thao tác</th></tr></thead><tbody id="adUserList"><tr><td colspan="6" class="text-secondary">Chọn một OU để tải danh sách user.</td></tr></tbody></table></div>
+      <div id="adUserFooter" class="small text-secondary mt-2">Danh sách chưa được tải.</div>
+      <div id="adOUGroupPanel" class="mt-4 pt-3 border-top border-secondary d-none">
+        <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-2"><div><h6 class="fw-bold mb-1"><i class="fa-solid fa-people-group text-info me-2"></i>Group nằm trong OU này</h6><div class="small text-secondary">Nhóm AD được lưu trực tiếp hoặc bên trong OU phòng ban; hiển thị thành viên user của từng nhóm.</div></div><span id="adOUGroupCount" class="badge bg-secondary">0 nhóm</span></div>
+        <div class="table-responsive"><table class="table table-sm table-hover align-middle"><thead><tr><th>Tên Group</th><th>Scope / Category</th><th>Số thành viên</th><th>User thành viên</th></tr></thead><tbody id="adOUGroupList"><tr><td colspan="4" class="text-secondary">Chọn một OU phòng ban để tải group.</td></tr></tbody></table></div>
+      </div>
+    </div>
+  </div>
+</div>

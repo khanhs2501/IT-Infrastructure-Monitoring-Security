@@ -1,0 +1,13 @@
+<div class="card p-4 mb-4"><h5 class="fw-bold mb-3"><i class="fa-solid fa-paper-plane"></i> Gửi Yêu Cầu Hỗ Trợ</h5>
+<form id="tkForm" class="row g-3">
+<input type="hidden" id="tkAssetId"><div class="col-12"><div id="tkAssetHint" class="small text-info d-none"></div></div>
+    <div class="col-md-4"><label class="form-label small text-secondary">Loại yêu cầu</label><select id="tkType" class="form-select bg-transparent"><option>Sự cố</option><option>Yêu cầu cấp phát/cài đặt</option><option>Quên mật khẩu / Mở khóa tài khoản</option><option>Quyền truy cập thư mục</option><option>Khác</option></select></div>
+    <div class="col-md-3"><label class="form-label small text-secondary">Mức ưu tiên</label><select id="tkPrio" class="form-select bg-transparent"><option value="Low">Thấp</option><option value="Normal" selected>Bình thường</option><option value="High">Cao</option><option value="Urgent">Khẩn cấp</option></select></div>
+    <div class="col-md-5"><label class="form-label small text-secondary">Tiêu đề</label><input id="tkTitle" class="form-control bg-transparent" placeholder="Tóm tắt trong một dòng" minlength="5" maxlength="200" required></div>
+    <div class="col-12"><label class="form-label small text-secondary">Mô tả chi tiết</label><textarea id="tkDesc" class="form-control bg-transparent" rows="3" maxlength="2000" placeholder="Máy nào, lỗi gì, xảy ra từ khi nào, bạn đã thử gì..."></textarea></div>
+    <div class="col-md-9"><div id="tkHint" class="small text-secondary"></div></div><div class="col-md-3"><button class="btn btn-primary w-100 fw-bold">Gửi Phiếu</button></div>
+</form></div>
+<div class="card p-4"><div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-3"><h5 class="fw-bold mb-0"><i class="fa-solid fa-list"></i> Danh Sách Phiếu Hỗ Trợ</h5>
+    <select id="tkFilter" class="form-select form-select-sm bg-transparent" style="width:auto"><option value="active">Đang mở (Mới + Đang xử lý)</option><option value="">Tất cả</option><option value="Resolved">Đã xử lý</option><option value="Cancelled">Đã hủy</option></select></div>
+    <div class="table-responsive" style="max-height:60vh;overflow-y:auto"><table class="table table-hover"><thead><tr><th>Mã</th><th>Người gửi</th><th>Loại</th><th>Tiêu đề</th><th>Ưu tiên</th><th>Cập nhật</th><th>SLA</th><th>Trạng thái</th></tr></thead><tbody id="ticketList"></tbody></table></div>
+    <div class="small text-secondary mt-2">Bấm vào một phiếu để xem chi tiết và trao đổi với bộ phận IT. <span class="text-secondary">*Trạng thái SLA được tính theo giờ lịch; ticket cũ có thể thiếu mốc SLA.</span></div></div>

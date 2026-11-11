@@ -1,0 +1,13 @@
+node_modules/
+.env
+.env.*
+!.env.example
+itportal.db
+itportal.db-*
+*.log
+logs/
+backups/
+*.bak
+daemon/*.exe
+daemon/*.log
+.DS_Store

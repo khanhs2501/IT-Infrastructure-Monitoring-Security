@@ -1,0 +1,100 @@
+﻿<!DOCTYPE html>
+<html lang="vi" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROYALGROUP.VN - Enterprise Operations</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="/css/style.css?v=1.8.2">
+</head>
+<body>
+
+<div id="loginScreen" class="container d-flex align-items-center justify-content-center" style="min-height: 100vh;">
+    <div class="card p-4 shadow-lg" style="width: 440px; max-width: 94vw;">
+        <div class="text-center mb-4"><h3 class="fw-bold text-info"><i class="fa-solid fa-crown"></i> ROYALGROUP.VN</h3><p class="text-secondary small">Trung Tâm Điều Hành Hạ Tầng Tập Trung</p></div>
+        <form id="loginForm" autocomplete="on" novalidate>
+            <div id="loginAlert" class="alert alert-danger py-2 small d-none" role="alert" aria-live="assertive"></div>
+            <div class="mb-3"><input type="text" id="loginUser" name="username" class="form-control bg-transparent text-white" placeholder="Tài khoản AD (vd: Administrator)" autocomplete="username" autocapitalize="none" autocorrect="off" spellcheck="false" maxlength="190" required autofocus></div>
+            <div class="mb-3 input-group"><input type="password" id="loginPass" name="password" class="form-control bg-transparent text-white" placeholder="Mật khẩu Domain" autocomplete="current-password" maxlength="256" required><button type="button" id="loginTogglePass" class="btn btn-outline-secondary" tabindex="-1" title="Hiện/ẩn mật khẩu" aria-label="Hiện hoặc ẩn mật khẩu"><i class="fa-solid fa-eye"></i></button></div>
+            <button type="submit" id="loginBtn" class="btn btn-info w-100 fw-bold py-2"><span id="loginBtnSpin" class="spinner-border spinner-border-sm me-2 d-none" aria-hidden="true"></span><span id="loginBtnText">Xác Thực Danh Tính (SSO)</span></button>
+            <div class="text-secondary small text-center mt-3">Có thể nhập <code>tên</code>, <code>DOMAIN\tên</code> hoặc <code>tên@domain</code></div>
+        </form>
+    </div>
+</div>
+
+<div id="mainApp" class="d-none container-fluid">
+    <div class="row g-0 align-items-stretch" id="mainLayoutRow">
+        <!-- SIDEBAR: one fixed-height panel with separate brand, scroll menu and footer boxes -->
+        <aside id="sidebarPanel" class="col-md-2 p-0 sidebar-column" aria-label="Thanh điều hướng ROYALGROUP">
+          <div id="sidebarShell" class="sidebar sidebar-shell">
+            <div id="sidebarBrandBox" class="sidebar-brand-box" data-sidebar-section="brand" aria-label="ROYALGROUP - đầu trang sidebar">
+              <div class="sidebar-brand-content d-flex justify-content-between align-items-center px-2">
+                <h5 class="text-info fw-bold mb-0"><i class="fa-solid fa-crown"></i> ROYALGROUP</h5>
+                <button class="btn btn-sm btn-outline-secondary" onclick="toggleTheme()"><i id="themeIcon" class="fa-solid fa-sun"></i></button>
+              </div>
+            </div>
+            <section id="sidebarMenuBox" class="sidebar-menu-box" data-sidebar-section="menu-box" aria-label="Hộp menu điều hướng">
+            <nav id="scrollableNav" class="nav flex-column sidebar-nav" data-sidebar-section="menu" data-scrollable="true" aria-label="Dịch vụ Portal">
+                <a class="nav-link active" id="nav-zabbix" onclick="navigateTo('zabbix')"><i class="fa-solid fa-chart-line me-2"></i> Giám Sát Hạ Tầng</a>
+                <a class="nav-link" id="nav-wazuh" onclick="navigateTo('wazuh')"><i class="fa-solid fa-shield-virus me-2"></i> Trung Tâm Giám Sát SOC</a>
+                <a class="nav-link" id="nav-pfsense" onclick="navigateTo('pfsense')"><i class="fa-solid fa-network-wired me-2"></i> Điều Phối Gateway</a>
+                <a class="nav-link" id="nav-ad" onclick="navigateTo('ad')"><i class="fa-solid fa-users-gear me-2"></i> Quản Trị Active Directory</a>
+                <a class="nav-link" id="nav-admin" onclick="navigateTo('admin')"><i class="fa-solid fa-server me-2"></i> Quản Trị Hệ Thống</a>
+                <a class="nav-link" id="nav-helpdesk" onclick="navigateTo('helpdesk')"><i class="fa-solid fa-headset me-2"></i> Hỗ Trợ Kỹ Thuật</a>
+            <a class="nav-link d-none" id="nav-audit" onclick="navigateTo('audit')"><i class="fa-solid fa-clipboard-list me-2"></i> Nhật Ký Hoạt Động</a><a class="nav-link d-none" id="nav-perm" onclick="navigateTo('perm')"><i class="fa-solid fa-user-shield me-2"></i> Phân Quyền</a></nav>
+            </section>
+
+            <div class="sidebar-footer" id="sidebarFooter" data-sidebar-section="footer" aria-label="Đồng hồ và đăng xuất - cuối sidebar">
+                <div id="sidebarClockBox" class="card p-2 border-info text-center sidebar-clock-card" data-sidebar-section="clock">
+                    <div id="sidebarClockTime" class="h4 fw-bold text-info my-1"><i class="fa-regular fa-clock me-1"></i>--:--:--</div>
+                    <div id="sidebarClockDate" class="small text-secondary fw-bold">--/--/----</div>
+                </div>
+                <hr class="border-secondary my-2">
+                <div class="px-2 pb-2">
+                    <div id="uName" class="fw-bold text-warning small"></div>
+                    <div id="uRole" class="badge bg-primary mb-2"></div>
+                    <button onclick="logout()" class="btn btn-sm btn-outline-danger w-100"><i class="fa-solid fa-power-off"></i> Đăng xuất</button>
+                </div>
+            </div>
+          </div>
+        </aside>
+
+        <main id="dashboardMain" class="col-md-10 p-4 dashboard-main">
+            <div id="dashboardToolbar" class="d-flex justify-content-between align-items-center mb-3 border-bottom border-secondary pb-2" data-dashboard-toolbar="true">
+                <h5 class="fw-bold text-secondary mb-0" id="secTitle">Bảng Điều Khiển</h5>
+                <button id="compactDashboardRefresh" data-compact-dashboard-refresh="true" class="btn btn-sm btn-outline-info fw-bold px-2 py-1 text-nowrap flex-shrink-0" title="Làm mới dữ liệu của mục hiện tại" onclick="refreshCurrentView()"><i class="fa-solid fa-arrows-rotate me-1"></i> Làm mới</button>
+            </div>
+            
+            <div id="dynamic-content"></div>
+        </main>
+    </div>
+</div>
+
+<!-- CÁC MODAL QUẢN TRỊ ACTIVE DIRECTORY GIỮ NGUYÊN BẢN BOOTSTRAP GỐC -->
+<div class="modal fade" id="addOUModal" tabindex="-1"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><h5 class="modal-title fw-bold text-info"><i class="fa-solid fa-folder-plus"></i> Tạo Phòng Ban (OU) Mới</h5><button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button></div><form id="adAddOUForm"><div class="modal-body"><input type="text" id="mOUName" class="form-control bg-transparent text-white" placeholder="Tên phòng ban / Khối" required></div><div class="modal-footer"><button type="submit" class="btn btn-info fw-bold w-100">Xác Nhận Tạo</button></div></form></div></div></div>
+
+<div class="modal fade" id="addUserModal" tabindex="-1"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><h5 class="modal-title fw-bold text-warning"><i class="fa-solid fa-user-plus"></i> Khởi Tạo Tài Khoản AD</h5><button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button></div><form id="adAddForm"><div class="modal-body"><input type="text" id="mUser" class="form-control bg-transparent text-white mb-3" placeholder="Tên tài khoản (sAMAccountName)" required><input type="text" id="mFull" class="form-control bg-transparent text-white mb-3" placeholder="Họ và Tên đầy đủ (DisplayName)" required><input type="password" id="mPass" class="form-control bg-transparent text-white mb-3" placeholder="Mật khẩu khởi tạo" required><label class="form-label small text-secondary">Phòng ban (OU):</label><select id="mDept" class="form-select bg-transparent text-white mb-3" required></select><label class="form-label small text-secondary">Cấp quyền hạn:</label><select id="mGroup" class="form-select bg-transparent text-white"><option value="Domain Users">Nhân viên (Domain Users)</option><option value="IT-Helpdesk">Kỹ thuật (IT-Helpdesk)</option><option value="Domain Admins">Quản trị viên (Domain Admins)</option></select></div><div class="modal-footer"><button type="submit" class="btn btn-warning fw-bold w-100">Thêm Người Dùng</button></div></form></div></div></div>
+
+<div class="modal fade" id="editUserModal" tabindex="-1"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><h5 class="modal-title fw-bold text-primary"><i class="fa-solid fa-user-pen"></i> Chỉnh Sửa: <span id="eUsernameTitle"></span></h5><button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button></div><form id="adEditForm"><input type="hidden" id="eUser"><div class="modal-body"><label class="form-label small text-secondary">Họ và Tên:</label><input type="text" id="eFull" class="form-control bg-transparent text-white mb-3" required><label class="form-label small text-secondary">Phòng ban (OU):</label><select id="eDept" class="form-select bg-transparent text-white mb-3" required></select><label class="form-label small text-secondary">Cấp quyền hạn:</label><select id="eGroup" class="form-select bg-transparent text-white"><option value="Domain Users">Nhân viên (Domain Users)</option><option value="IT-Helpdesk">Kỹ thuật (IT-Helpdesk)</option><option value="Domain Admins">Quản trị viên (Domain Admins)</option></select></div><div class="modal-footer"><button type="submit" class="btn btn-primary fw-bold w-100">Lưu Thông Tin</button></div></form></div></div></div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script src="/js/app.js?v=1.8.2"></script>
+<script src="/js/ui.js?v=1.8.2"></script>
+<script src="/js/ui2.js?v=1.8.2"></script>
+<script src="/js/ui3.js?v=1.8.2"></script>
+<script src="/js/ui4.js?v=1.8.2"></script>
+<script src="/js/ui5.js?v=1.8.2"></script>
+<script src="/js/ui6.js?v=1.8.2"></script>
+<script src="/js/ui7.js?v=1.8.2"></script>
+<script src="/js/ui8.js?v=1.8.2"></script>
+<script src="/js/ui9.js?v=1.8.2"></script>
+<script src="/js/auth.js?v=1.8.2"></script>
+</body>
+</html>
+
+
+
+
+
+

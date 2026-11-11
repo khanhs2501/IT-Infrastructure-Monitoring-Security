@@ -1,0 +1,19 @@
+﻿<div class="row g-4 mb-4">
+    <div class="col-lg-6"><div class="card p-4 h-100"><h5 class="text-warning fw-bold mb-3"><i class="fa-solid fa-shield"></i> Thiết Lập Chính Sách Nhóm (GPO)</h5>
+        <form id="gpoForm"><input id="gpoName" class="form-control bg-transparent mb-3" placeholder="Tên GPO (VD: Baseline_Workstation)" required>
+            <label class="form-label small text-secondary">Chọn các chính sách áp dụng:</label>
+            <div id="gpoRules" class="border rounded p-2 mb-3" style="max-height:230px;overflow-y:auto"></div>
+            <label class="form-label small text-secondary">Liên kết vào:</label><select id="gpoTarget" class="form-select bg-transparent mb-3"></select>
+            <button class="btn btn-warning w-100 fw-bold">Tạo & Liên Kết GPO</button></form></div></div>
+    <div class="col-lg-6"><div class="card p-4 h-100"><h5 class="text-success fw-bold mb-3"><i class="fa-solid fa-folder-tree"></i> Chia Sẻ File Server (SMB)</h5>
+        <form id="smbForm">
+            <div class="row g-2 mb-2"><div class="col-5"><select id="smbDrive" class="form-select bg-transparent"></select></div><div class="col-7"><input id="smbPath" class="form-control bg-transparent" readonly placeholder="Chọn ổ đĩa..."></div></div>
+            <div id="smbFolders" class="list-group mb-3" style="max-height:150px;overflow-y:auto"></div>
+            <div class="row g-2 mb-2"><div class="col-6"><input id="smbSub" class="form-control bg-transparent" placeholder="Thư mục con mới (tuỳ chọn)"></div><div class="col-6"><input id="smbName" class="form-control bg-transparent" placeholder="Tên chia sẻ" required></div></div>
+            <div class="row g-2 mb-3"><div class="col-7"><select id="smbGroup" class="form-select bg-transparent"><option>Domain Users</option><option>IT-Helpdesk</option><option>Domain Admins</option></select></div><div class="col-5"><select id="smbPerm" class="form-select bg-transparent"><option value="Read">Chỉ đọc</option><option value="Change">Đọc/Ghi</option><option value="Full">Toàn quyền</option></select></div></div>
+            <button class="btn btn-success w-100 fw-bold">Tạo & Phân Quyền</button></form></div></div>
+</div>
+<div class="row g-4">
+    <div class="col-lg-7"><div class="card p-4"><h5 class="fw-bold mb-3"><i class="fa-solid fa-list-check"></i> Danh Sách GPO</h5><table class="table table-hover table-sm"><thead><tr><th>Tên Chính Sách</th><th>GUID</th><th>Trạng Thái</th><th></th></tr></thead><tbody id="gpoList"></tbody></table></div></div>
+    <div class="col-lg-5"><div class="card p-4"><h5 class="fw-bold mb-3"><i class="fa-solid fa-share-nodes"></i> Thư Mục Đang Chia Sẻ</h5><table class="table table-hover table-sm"><thead><tr><th>Tên</th><th>Đường Dẫn</th><th></th></tr></thead><tbody id="smbList"></tbody></table></div></div>
+</div>

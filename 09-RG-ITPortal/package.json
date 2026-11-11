@@ -1,0 +1,26 @@
+{
+  "name": "rg-itportal",
+  "version": "1.8.2",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node scripts/smoke-check.js && node scripts/test-ad-query.js && node scripts/test-ad-row-actions.js && node scripts/test-flow.js && node scripts/test-login.js",
+    "check:env": "node scripts/check-env.js",
+    "diagnose:login": "node scripts/diagnose-login.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "ROYALGROUP IT Portal for infrastructure monitoring, security operations and Active Directory administration.",
+  "dependencies": {
+    "axios": "^1.20.0",
+    "dotenv": "^18.0.5",
+    "express": "^5.2.1",
+    "express-rate-limit": "^8.7.1",
+    "express-session": "^1.19.0",
+    "helmet": "^8.3.0",
+    "node-windows": "^1.0.0-beta.8",
+    "sqlite3": "^6.0.1",
+    "ssh2": "^1.17.0"
+  }
+}

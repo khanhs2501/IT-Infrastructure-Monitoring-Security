@@ -1,0 +1,11 @@
+<div class="card p-4 mb-4 position-relative" style="margin-top:14px">
+    <span class="badge rounded-pill border text-body bg-body position-absolute top-0 start-50 translate-middle px-4 py-2">LAST 24 HOURS ALERTS &nbsp;|&nbsp; <span id="wzTotal">--</span></span>
+    <div class="row text-center g-3 pt-3">
+        <div class="col-6 col-md-3"><div class="fs-5 fw-semibold">Critical severity</div><div class="display-6 fw-bold" style="color:#dc2626" id="wz-critical">0</div><small class="text-secondary">Rule level 15 or higher</small></div>
+        <div class="col-6 col-md-3"><div class="fs-5 fw-semibold">High severity</div><div class="display-6 fw-bold" style="color:#f59e0b" id="wz-high">0</div><small class="text-secondary">Rule level 12 to 14</small></div>
+        <div class="col-6 col-md-3"><div class="fs-5 fw-semibold">Medium severity</div><div class="display-6 fw-bold" style="color:#60a5fa" id="wz-medium">0</div><small class="text-secondary">Rule level 7 to 11</small></div>
+        <div class="col-6 col-md-3"><div class="fs-5 fw-semibold">Low severity</div><div class="display-6 fw-bold" style="color:#0d9488" id="wz-low">0</div><small class="text-secondary">Rule level 0 to 6</small></div>
+    </div>
+    <div id="wzAgents" class="text-center mt-3"></div>
+</div>
+<div class="card p-4"><h6 class="fw-bold text-warning mb-3"><i class="fa-solid fa-shield-virus"></i> Sự Kiện Mức Medium Trở Lên (24 Giờ)</h6><div class="table-responsive" style="max-height:520px"><table class="table table-hover table-sm"><thead><tr><th>Thời Gian</th><th>Agent</th><th>Mức</th><th>Mô Tả</th><th>Rule</th><th>Incident</th></tr></thead><tbody id="wzEvents"></tbody></table></div></div>

@@ -1,0 +1,13 @@
+<div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-3">
+  <div><div class="fw-bold">Tình hình vận hành</div><div class="small text-secondary" id="ovUpdated">Đang tải dữ liệu...</div></div>
+  <button class="btn btn-sm btn-outline-info" onclick="navigateTo('helpdesk')"><i class="fa-solid fa-headset me-1"></i> Gửi yêu cầu hỗ trợ</button>
+</div>
+<div class="row g-3 mb-4" id="ovKpi"><div class="col-12 text-secondary small">Đang tải dữ liệu...</div></div>
+<div class="d-flex justify-content-between align-items-center mb-2"><h6 class="fw-bold mb-0"><i class="fa-solid fa-server text-info me-2"></i>Thông số máy chủ</h6><span class="small text-secondary">CPU · RAM · Disk</span></div>
+<div class="row g-3 mb-4" id="ovDevices"><div class="col-12 text-secondary small">Đang tải thông số...</div></div>
+<div class="row g-3 mb-4" id="ovServices"></div>
+<div class="row g-4">
+  <div class="col-xl-7"><div class="card p-3 h-100"><div class="d-flex justify-content-between align-items-center mb-2"><h6 class="fw-bold text-danger mb-0"><i class="fa-solid fa-triangle-exclamation me-1"></i> Cảnh báo gần đây</h6><button class="btn btn-sm btn-link" onclick="navigateTo('zabbix')">Mở giám sát</button></div><div class="table-responsive"><table class="table table-hover table-sm m-0"><thead><tr><th>Thời gian</th><th>Trạng thái</th><th>Host</th><th>Sự cố</th></tr></thead><tbody id="ovProb"></tbody></table></div></div></div>
+  <div class="col-xl-5"><div class="card p-3 h-100"><div class="d-flex justify-content-between align-items-center mb-2"><h6 class="fw-bold text-warning mb-0"><i class="fa-solid fa-headset me-1"></i> Phiếu đang mở</h6><button class="btn btn-sm btn-link" onclick="navigateTo('helpdesk')">Mở helpdesk</button></div><div class="table-responsive"><table class="table table-hover table-sm m-0"><thead><tr><th>Mã</th><th>Người gửi</th><th>Nội dung</th></tr></thead><tbody id="ovTk"></tbody></table></div></div></div>
+  <div class="col-12"><div class="card p-3"><div class="d-flex justify-content-between align-items-center mb-2"><h6 class="fw-bold text-info mb-0"><i class="fa-solid fa-bug me-1"></i> Lỗ hổng cần xử lý</h6><button class="btn btn-sm btn-link" onclick="navigateTo('vuln')">Mở Vulnerability Management</button></div><div class="table-responsive"><table class="table table-hover table-sm m-0"><thead><tr><th>Mức độ</th><th>Tài sản</th><th>Lỗ hổng</th><th>CVE</th></tr></thead><tbody id="ovVuln"></tbody></table></div></div></div>
+</div>

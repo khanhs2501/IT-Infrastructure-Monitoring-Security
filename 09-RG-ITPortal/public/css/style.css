@@ -1,0 +1,186 @@
+:root { --bg-body: #0b1329; --bg-card: #111c44; --border-card: #1e293b; --text-main: #f8fafc; --text-sub: #94a3b8; }
+[data-bs-theme="light"] { --bg-body: #f1f5f9; --bg-card: #ffffff; --border-card: #cbd5e1; --text-main: #0f172a; --text-sub: #475569; }
+body { background-color: var(--bg-body); color: var(--text-main); font-family: -apple-system, sans-serif; transition: 0.3s; }
+.sidebar-shell { background-color: var(--bg-card); }
+.card { background-color: var(--bg-card); border: 1px solid var(--border-card); border-radius: 12px; }
+.nav-link { color: var(--text-sub); font-weight: 500; border-radius: 8px; margin-bottom: 4px; cursor: pointer; padding: 10px 15px; }
+.nav-link.active, .nav-link:hover { background-color: rgba(56, 189, 248, 0.15); color: #38bdf8; font-weight: bold; }
+.gauge-box { text-align: center; padding: 15px 10px; border-radius: 10px; background: rgba(0,0,0,0.15); }
+.gauge-val { font-size: 1.8rem; font-weight: 700; color: #10b981; }
+.uptime-val { font-size: 2.2rem; font-weight: 800; color: #38bdf8; }
+.overview-device-card { padding: 1.15rem; border-color: rgba(56,189,248,.42); background: linear-gradient(135deg, rgba(56,189,248,.10), transparent 58%), var(--bg-card); box-shadow: 0 8px 24px rgba(2,132,199,.10); }
+.overview-device-icon { display: grid; place-items: center; width: 2.65rem; height: 2.65rem; border-radius: .8rem; color: #38bdf8; background: rgba(56,189,248,.14); font-size: 1.15rem; }
+.overview-device-name { font-size: 1.15rem; font-weight: 800; letter-spacing: .02em; }
+.overview-resource-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .8rem; }
+.overview-resource { min-width: 0; padding: .7rem; border: 1px solid var(--border-card); border-radius: .7rem; background: rgba(0,0,0,.10); }
+.overview-resource-value { font-size: clamp(1.15rem, 2vw, 1.55rem); font-weight: 800; line-height: 1.2; }
+.overview-resource-track { height: .5rem; overflow: hidden; border-radius: 999px; background: rgba(148,163,184,.2); }
+.overview-resource-fill { height: 100%; border-radius: inherit; transition: width .35s ease; }
+.overview-device-footer { margin-top: .9rem; padding-top: .65rem; border-top: 1px solid var(--border-card); color: var(--text-sub); font-size: .85rem; }
+.overview-device-footer strong { margin-left: .25rem; color: var(--text-main); font-size: .95rem; }
+.table { color: var(--text-main); vertical-align: middle; }
+.modal-content { background-color: var(--bg-card); border: 1px solid var(--border-card); color: var(--text-main); }
+.modal-header, .modal-footer { border-color: var(--border-card); }
+/* RG-ITPortal v1.6.0: larger RoyalGroup logo, independent scroll nav, blue outlined clock. */
+#mainApp > #mainLayoutRow {
+    min-height: 100vh;
+    min-height: 100dvh;
+    align-items: stretch !important;
+}
+.sidebar-column {
+    position: sticky;
+    top: 0;
+    align-self: flex-start;
+    display: block;
+    height: 100vh;
+    height: 100dvh;
+    max-height: 100vh;
+    max-height: 100dvh;
+    min-width: 0;
+    min-height: 0;
+    overflow: hidden !important;
+    z-index: 10;
+    box-sizing: border-box;
+    background-color: var(--bg-card);
+    border-right: 1px solid var(--border-card) !important;
+    box-shadow: none;
+}
+.sidebar-shell {
+    width: 100%;
+    height: 100%;
+    min-width: 0;
+    min-height: 0;
+    box-sizing: border-box;
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto minmax(0, 1fr) auto;
+    gap: .5rem;
+    padding: .65rem;
+    overflow: hidden !important;
+    background-color: var(--bg-card);
+    border-right: 0 !important;
+}
+.sidebar-brand-box {
+    grid-row: 1;
+    min-width: 0;
+    box-sizing: border-box;
+    padding: .5rem .25rem;
+    border: 0 !important;
+    border-radius: 0;
+    background-color: var(--bg-card) !important;
+    position: relative;
+    z-index: 3;
+}
+.sidebar-brand-content { min-width: 0; gap: .25rem; }
+#sidebarBrandBox .sidebar-brand-content h5 { font-size: 1.55rem !important; line-height: 1.25; white-space: nowrap; letter-spacing: .01em; }
+#sidebarBrandBox .sidebar-brand-content h5 .fa-crown { font-size: 1.28em; }
+.sidebar-menu-box {
+    grid-row: 2;
+    display: flex !important;
+    flex-direction: column !important;
+    flex-wrap: nowrap !important;
+    align-items: stretch;
+    box-sizing: border-box;
+    min-width: 0;
+    min-height: 0 !important;
+    width: 100%;
+    height: 100%;
+    margin: 0 !important;
+    padding: .3rem .05rem;
+    overflow: hidden !important;
+    border: 0 !important;
+    border-radius: 0;
+    background-color: transparent !important;
+}
+#scrollableNav {
+    display: flex !important;
+    flex: 1 1 auto !important;
+    flex-direction: column !important;
+    flex-wrap: nowrap !important;
+    align-items: stretch;
+    box-sizing: border-box;
+    min-width: 0;
+    min-height: 0 !important;
+    width: 100%;
+    height: auto !important;
+    max-height: none !important;
+    margin: 0 !important;
+    padding: .1rem !important;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    overscroll-behavior-y: contain;
+    scrollbar-gutter: stable;
+    scrollbar-width: auto;
+    scrollbar-color: #64748b var(--bg-card);
+    -webkit-overflow-scrolling: touch;
+}
+#scrollableNav .nav-link {
+    display: block;
+    flex: 0 0 auto;
+    min-width: 0;
+    padding: .62rem .55rem;
+    margin: 0 0 .15rem 0;
+    white-space: normal;
+    overflow-wrap: anywhere;
+}
+#scrollableNav::-webkit-scrollbar { width: 9px; }
+#scrollableNav::-webkit-scrollbar-track { background-color: var(--bg-card); border-radius: 8px; }
+#scrollableNav::-webkit-scrollbar-thumb { background-color: #64748b; border: 2px solid var(--bg-card); border-radius: 8px; }
+.sidebar-footer {
+    grid-row: 3;
+    display: block;
+    box-sizing: border-box;
+    min-width: 0;
+    margin: 0 !important;
+    padding: .45rem .1rem .1rem;
+    overflow: hidden;
+    position: relative;
+    isolation: isolate;
+    z-index: 4;
+    border: 0 !important;
+    border-radius: 0;
+    background-color: var(--bg-card) !important;
+    opacity: 1 !important;
+    box-shadow: none;
+}
+.sidebar-clock-card {
+    background-color: var(--bg-card) !important;
+    border: 1px solid #38bdf8 !important;
+    border-radius: 12px !important;
+    box-shadow: 0 0 0 1px rgba(56,189,248,.10), 0 3px 14px rgba(56,189,248,.08) !important;
+    opacity: 1 !important;
+    margin: 0 0 .45rem !important;
+    padding: .35rem !important;
+}
+#sidebarClockTime { font-size: clamp(1.05rem, 1.3vw, 1.4rem); line-height: 1.25; }
+#sidebarClockDate { line-height: 1.2; }
+.sidebar-footer hr { opacity: .55; margin: .35rem 0 !important; }
+.sidebar-footer #uRole { max-width: 100%; white-space: normal; }
+.sidebar-footer button { display: block; }
+#dashboardToolbar { min-width: 0; gap: .75rem; }
+#compactDashboardRefresh { flex: 0 0 auto; white-space: nowrap; }
+.dashboard-main { min-width: 0; }
+@media (max-width: 767.98px) {
+  #mainApp > #mainLayoutRow { align-items: stretch !important; }
+  .sidebar-column {
+    position: relative;
+    top: auto;
+    width: 100%;
+    height: min(72dvh, 620px);
+    max-height: min(72dvh, 620px);
+    align-self: stretch;
+  }
+  .sidebar-shell { padding: .55rem; }
+  #sidebarBrandBox .sidebar-brand-content h5 { font-size: 1.25rem !important; }
+  #sidebarBrandBox .sidebar-brand-content h5 .fa-crown { font-size: 1.2em; }
+  .dashboard-main { min-width: 0; }
+  #globalSearch { width: 130px; }
+}
+select option { background-color: var(--bg-card) !important; color: var(--text-main) !important; font-weight: 500; }
+select:focus { border-color: var(--primary); }
+/* RG-UPGRADE2: sửa chữ trắng trên nền trắng của ô nhập và danh sách chọn */
+.form-control, .form-select { color: var(--text-main) !important; border-color: var(--border-card); }
+.form-control::placeholder { color: var(--text-sub); opacity: .8; }
+select option { background-color: var(--bg-card); color: var(--text-main); }
+[data-bs-theme="light"] .btn-close-white { filter: none; }
+.list-group-item { background-color: transparent; color: var(--text-main); border-color: var(--border-card); cursor: pointer; }

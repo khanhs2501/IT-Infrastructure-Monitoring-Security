@@ -1,0 +1,72 @@
+﻿<div class="card p-4 mb-4">
+	<div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
+		<h6 class="text-info fw-bold mb-0">
+			<i class="fa-solid fa-wifi"></i> 
+				Băng Thông Cổng 
+				<span class="badge bg-secondary ms-1" id="pfWanName">
+				</span>
+		</h6>
+		<div class="d-flex align-items-center gap-2">
+			<small class="text-secondary"> Cổng theo dõi:</small>
+			<select id="pfSel" class="form-select form-select-sm bg-transparent" style="width:auto"></select>
+		</div>
+	</div>
+	<div class="d-flex justify-content-around mt-4 mb-2">
+		<div>
+			<span class="text-secondary d-block mb-2">Tốc độ Tải Xuống (In)</span>
+			<b class="text-success" style="font-size:2rem;" id="pfWanIn">0.000 Mbps</b>
+		</div>
+	<div>
+		<span class="text-secondary d-block mb-2">Tốc độ Tải Lên (Out)</span>
+		<b class="text-warning" style="font-size:2rem;" id="pfWanOut">0.000 Mbps</b>
+			</div>
+			</div>
+			<div class="text-center small text-secondary" id="pfHuman"></div>
+		<div class="text-center small text-secondary mt-1">
+	</div>
+</div>
+
+
+
+<div class="card p-4 mb-4">
+	<h6 class="fw-bold text-info mb-3">
+		<i class="fa-solid fa-ethernet"></i> 
+		Các Cổng Mạng (Interfaces)
+	</h6>
+	<div class="table-responsive">
+		<table class="table table-hover table-sm">
+			<thead>
+				<tr>
+					<th>Cổng</th>
+					<th>Tải xuống</th>
+					<th>Tải lên</th>
+					<th>Tổng nhận</th>
+					<th>Tổng gửi</th>
+					<th>Lỗi</th>
+				</tr>
+			</thead>
+			<tbody id="pfIfList"></tbody>
+		</table>
+	</div>
+</div>
+
+
+<div class="card p-4">
+	<h6 class="fw-bold text-primary mb-3">
+		<i class="fa-solid fa-desktop"></i> 
+		Thiết Bị Trong Mạng 
+	</h6>
+	<div class="table-responsive" style="max-height:420px;overflow-y:auto">
+		<table class="table table-hover">
+			<thead>
+				<tr>
+					<th>Địa Chỉ IP</th>
+					<th>Địa Chỉ Vật Lý (MAC)</th>
+					<th>Tên Máy Khách</th>
+					<th>Nguồn tên</th>
+				</tr>
+			</thead>
+			<tbody id="pfLeaseList"></tbody>
+		</table>
+	</div>
+</div>
